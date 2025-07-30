@@ -1,13 +1,9 @@
 const express = require('express')
 const cors = require('cors')
-const path = require('path')
 
 // Mock database for demo purposes
 const mockUsers = new Map()
 const mockMessages = new Map()
-
-// read .env vars 
-require('dotenv').config()
 
 const app = express()
 var http = require('http').createServer(app)
@@ -20,7 +16,6 @@ var io = require('socket.io')(http, {
 
 app.use(cors())
 app.use(express.json())
-app.use(express.static('public'))
 
 // Mock authentication middleware
 app.use((req, res, next) => {
